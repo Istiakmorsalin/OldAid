@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/go_to_home"
+        android:orderInCategory="300"
+        android:title="Add an Event"
+        android:icon="@drawable/ic_home_white_24dp"
+        app:showAsAction="ifRoom"></item>
+
+</menu>
+

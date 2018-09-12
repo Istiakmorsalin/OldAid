@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<manifest package="com.onisha.oldaid"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".voice.OldAidApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.onisha.oldaid.MainActivity"/>
+        <activity android:name=".auth.RegistrationActivity"/>
+        <activity android:name=".auth.LoginActivity"/>
+        <activity android:name=".datainput.DataInputActivity"/>
+        <activity android:name=".notifiy.NotifyFriendActivity"/>
+        <activity android:name=".notifiy.PersistenceFriendDataActivity"/>
+
+        <activity android:name=".location.MyLocationUsingHelper"/>
+        <activity android:name=".location.MyLocationUsingLocationAPI"/>
+        <activity android:name=".oldhome.OldHomeActivity"/>
+
+        <activity
+            android:name=".reminder.activity.ReminderMainActivity"
+            android:label="@string/Reminder"
+            android:windowSoftInputMode="adjustNothing"
+            android:theme="@style/ReminderAppTheme">
+
+        </activity>
+
+        <activity
+            android:name=".reminder.activity.AddEvent"
+            android:label="@string/title_activity_add_event"
+            android:windowSoftInputMode="adjustNothing"
+            android:theme="@style/ReminderAppTheme">
+
+        </activity>
+        <activity
+            android:name=".reminder.activity.ShowReminderMessage"
+            android:label="@string/Reminder"
+            android:theme="@style/ReminderAppTheme"> </activity>
+
+
+        <activity android:name=".voice.VoiceActivity">
+
+        <intent-filter>
+            <action android:name="android.intent.action.SET_ALARM"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+
+        <receiver android:name=".reminder.util.TimeAlarm" />
+
+        <receiver android:enabled="true" android:name=".reminder.util.BootUpReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.onisha.oldaid.alarms.background.UpcomingAlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+
+        <activity
+            android:name="com.onisha.oldaid.settings.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.onisha.oldaid.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.onisha.oldaid.MainActivity"/>
+        </activity>
+        <activity android:name="com.onisha.oldaid.speechtotext.SpeechToTextActivity"/>
+
+        <receiver
+            android:name="com.onisha.oldaid.alarms.background.PendingAlarmScheduler"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+        <receiver
+            android:name="com.onisha.oldaid.alarms.background.OnBootUpReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.onisha.oldaid.alarms.background.OnBootUpAlarmScheduler"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+        <activity
+            android:name="com.onisha.oldaid.timers.EditTimerActivity"
+            android:label="@string/title_activity_create_timer"
+            android:parentActivityName="com.onisha.oldaid.MainActivity"
+            android:windowSoftInputMode="adjustNothing">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.onisha.oldaid.MainActivity"/>
+        </activity>
+
+        <service
+            android:name="com.onisha.oldaid.timers.TimerNotificationService"
+            android:exported="false">
+        </service>
+
+        <activity
+            android:name="com.onisha.oldaid.ringtone.TimesUpActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_ringtone"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.onisha.clock2.RingtoneActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name="com.onisha.oldaid.ringtone.AlarmActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_ringtone"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.onisha.clock2.RingtoneActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+
+        <service
+            android:name="com.onisha.oldaid.ringtone.playback.AlarmRingtoneService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+        <service
+            android:name="com.onisha.oldaid.ringtone.playback.TimerRingtoneService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+        <service
+            android:name="com.onisha.oldaid.stopwatch.StopwatchNotificationService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+    </application>
+
+</manifest>
