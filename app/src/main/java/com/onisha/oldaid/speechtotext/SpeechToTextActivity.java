@@ -13,6 +13,7 @@ import com.onisha.oldaid.MainActivity;
 import com.onisha.oldaid.R;
 import com.onisha.oldaid.location.MyLocationUsingLocationAPI;
 import com.onisha.oldaid.notifiy.PersistenceFriendDataActivity;
+import com.onisha.oldaid.nutrition.CalculateBMIActivity;
 import com.onisha.oldaid.oldhome.OldHomeActivity;
 import com.onisha.oldaid.reminder.activity.ReminderMainActivity;
 
@@ -107,7 +108,10 @@ public class SpeechToTextActivity extends AppCompatActivity {
                     }  else if (v.equals("reminder")) {
                         Intent i = new Intent(SpeechToTextActivity.this, ReminderMainActivity.class);
                         startActivity(i);
-                    }
+                    }   else if (v.equals("food")) {
+                    Intent i = new Intent(SpeechToTextActivity.this, CalculateBMIActivity.class);
+                    startActivity(i);
+                }
 
                 }
                 break;

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.onisha.oldaid.auth.LoginActivity;
 import com.onisha.oldaid.auth.RegistrationActivity;
+import com.onisha.oldaid.datainput.DataInputActivity;
+import com.onisha.oldaid.speechtotext.SpeechToTextActivity;
 import com.pixplicity.easyprefs.library.Prefs;
 
 
@@ -43,18 +45,25 @@ public class SplashScreenActivity extends AppCompatActivity {
                // mPlayer.stop();
 
                 String reg = Prefs.getString(SharedPreferenceKey.shouldRegistrationLaunch, "false");
+                String log = Prefs.getString(SharedPreferenceKey.shouldLoginLaunch, "false");
 
-                if (reg.equals("false")) {
+                String data = Prefs.getString(SharedPreferenceKey.shouldDataPreferenceLaunch, "false");
+
+                if (reg.equals("false") && log.equals("false") && data.equals("false")) {
                     Intent i = new Intent(SplashScreenActivity.this, RegistrationActivity.class);
                     startActivity(i);
-                } else {
+                } else if (reg.equals("true") && log.equals("false") && data.equals("false"))  {
                     Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                    startActivity(i);
+                } else if (reg.equals("true") && log.equals("true") && data.equals("false"))  {
+                    Intent i = new Intent(SplashScreenActivity.this, DataInputActivity.class);
+                    startActivity(i);
+                } else if (reg.equals("true") && log.equals("true") && data.equals("true"))  {
+                    Intent i = new Intent(SplashScreenActivity.this, SpeechToTextActivity.class);
                     startActivity(i);
                 }
 
 
-
-                // close this activity
                 finish();
             }
         }, SPLASH_TIME_OUT);

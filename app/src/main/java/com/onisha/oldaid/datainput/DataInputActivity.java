@@ -8,8 +8,11 @@ import android.widget.EditText;
 
 import com.onisha.oldaid.BaseActivity;
 import com.onisha.oldaid.R;
+import com.onisha.oldaid.SharedPreferenceKey;
+import com.onisha.oldaid.auth.LoginActivity;
 import com.onisha.oldaid.reminder.model.PrefsModelDB;
 import com.onisha.oldaid.speechtotext.SpeechToTextActivity;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -80,6 +83,7 @@ public class DataInputActivity extends BaseActivity {
                 myRealm.commitTransaction();
 
                 Intent i = new Intent(DataInputActivity.this, SpeechToTextActivity.class);
+                Prefs.putString(SharedPreferenceKey.shouldDataPreferenceLaunch, "true");
                 startActivity(i);
             }
         });

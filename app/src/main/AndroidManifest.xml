@@ -45,6 +45,8 @@
         <activity android:name=".location.MyLocationUsingHelper"/>
         <activity android:name=".location.MyLocationUsingLocationAPI"/>
         <activity android:name=".oldhome.OldHomeActivity"/>
+        <activity android:name=".nutrition.CalculateBMIActivity"/>
+        <activity android:name=".nutrition.SampleFoodSuggestionActivity"/>
 
         <activity
             android:name=".reminder.activity.ReminderMainActivity"

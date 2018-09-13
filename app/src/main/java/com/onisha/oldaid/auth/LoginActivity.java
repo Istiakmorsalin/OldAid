@@ -60,10 +60,10 @@ public class LoginActivity extends BaseActivity {
                 String phoneNumber = loginPhoneNumber.getText().toString();
 
                 if (email.equals(results1.first().getEmail()) && phoneNumber.equals(results1.first().getMobileNumber())) {
-
                     Toast.makeText(LoginActivity.this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
                     Prefs.putString(SharedPreferenceKey.shouldLoginLaunch, "true");
                     Intent i = new Intent(LoginActivity.this, DataInputActivity.class);
+                    mPlayer.stop();
                     startActivity(i);
                 } else {
                     Toast.makeText(LoginActivity.this, "Email & Number Did not match", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 import com.onisha.oldaid.BaseActivity;
 import com.onisha.oldaid.R;
+import com.onisha.oldaid.SharedPreferenceKey;
+import com.onisha.oldaid.datainput.DataInputActivity;
 import com.onisha.oldaid.reminder.model.RegistrationModelDB;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -81,6 +84,7 @@ public class RegistrationActivity extends BaseActivity {
                     mPlayer.stop();
                     Toast.makeText(RegistrationActivity.this, "Registration Success", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
+                    Prefs.putString(SharedPreferenceKey.shouldRegistrationLaunch, "true");
                     startActivity(i);
                 } else {
                     Toast.makeText(RegistrationActivity.this, "Input all data", Toast.LENGTH_SHORT).show();

@@ -25,73 +25,72 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:orientation="vertical"
-        android:layout_marginEnd="20dp">
+        android:orientation="vertical">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Input Data"
-        android:textSize="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
-        android:textColor="@color/calendar_header"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="Input Data"
+            android:textColor="@color/calendar_header"
+            android:textSize="40dp" />
 
 
-    <EditText
-        android:id="@+id/height"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint ="height(kg)"
-        android:inputType="numberDecimal"
-        />
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="height(cm)"
+            android:inputType="numberDecimal" />
 
-    <EditText
-        android:id="@+id/weight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint = "weight(cm)"
-        android:inputType="numberDecimal"
-        />
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="weight(kg)"
+            android:inputType="numberDecimal" />
 
-    <EditText
-        android:id="@+id/food"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:hint="foodPreference"/>
+        <EditText
+            android:id="@+id/food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="foodPreference" />
 
-    <EditText
-        android:id="@+id/book"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="booksPreference"/>
-    <EditText
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="tvProgrampreference"/>
-    <EditText
-        android:id="@+id/news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="newsPrafenrence"/>
+        <EditText
+            android:id="@+id/book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="booksPreference" />
 
-    <Button
-        android:id="@+id/save_data"
-        android:layout_marginTop="40dp"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Save"/>
+        <EditText
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="tvProgrampreference" />
+
+        <EditText
+            android:id="@+id/news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="newsPrafenrence" />
+
+        <Button
+            android:id="@+id/save_data"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="Save" />
 
     </LinearLayout>
 
