@@ -3,14 +3,143 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textSize="30dp"
+            android:text="Choose Options Below:"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/createAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Create Alarm"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+            <Button
+                android:id="@+id/danger"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Danger"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                android:layout_weight="1"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/locationBtn"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Location"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="OldHome"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/reminder"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Reminder"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+            <Button
+                android:id="@+id/food"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Food Suggestion"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="160dp"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        android:text="Say 'Create Alarm' for setting an alarm,Say 'Danger' for help,Say 'Location' for help, Say 'Home' for old home, Say 'reminder' for reminder ,Say 'food' for food suggestion"
+        android:textStyle="normal" />
+
     <TextView
         android:id="@+id/voiceInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:textColor="@color/blue"
         android:textSize="26sp"
+
         android:textStyle="normal" />
 
     <LinearLayout
