@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.onisha.oldaid.MainActivity;
@@ -31,10 +32,67 @@ public class SpeechToTextActivity extends AppCompatActivity {
     private TextView speakButton;
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
+    private Button createAlarm, danger, lcoation, home, reminder, food;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.onisha.oldaid.R.layout.speech_main);
+
+        createAlarm  = (Button) findViewById(R.id.createAlarm);
+        danger  = (Button) findViewById(R.id.danger);
+        lcoation  = (Button) findViewById(R.id.locationBtn);
+        home  = (Button) findViewById(R.id.homeButton);
+        reminder  = (Button) findViewById(R.id.reminder);
+        food  = (Button) findViewById(R.id.food);
+
+        createAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        danger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, PersistenceFriendDataActivity.class);
+                startActivity(i);
+            }
+        });
+
+        lcoation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, MyLocationUsingLocationAPI.class);
+                startActivity(i);
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, OldHomeActivity.class);
+                startActivity(i);
+            }
+        });
+
+        reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, ReminderMainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, CalculateBMIActivity.class);
+                startActivity(i);
+            }
+        });
 
 //        final MediaPlayer mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.CreateAlarm);
 //        mPlayer.start();
@@ -109,9 +167,9 @@ public class SpeechToTextActivity extends AppCompatActivity {
                         Intent i = new Intent(SpeechToTextActivity.this, ReminderMainActivity.class);
                         startActivity(i);
                     }   else if (v.equals("food")) {
-                    Intent i = new Intent(SpeechToTextActivity.this, CalculateBMIActivity.class);
-                    startActivity(i);
-                }
+                        Intent i = new Intent(SpeechToTextActivity.this, CalculateBMIActivity.class);
+                        startActivity(i);
+                    }
 
                 }
                 break;
