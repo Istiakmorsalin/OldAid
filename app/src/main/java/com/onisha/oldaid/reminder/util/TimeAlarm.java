@@ -11,10 +11,13 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.NotificationCompat;
 
 import com.onisha.oldaid.R;
 import com.onisha.oldaid.reminder.activity.ShowReminderMessage;
+
+import java.util.Locale;
 
 /**
  * Created by onisha on 17-Aug-16.
@@ -53,6 +56,11 @@ public class TimeAlarm extends BroadcastReceiver {
 
         NotificationManager notificationManager =
                 (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        Intent intent1 = new Intent(context, TTS.class);
+        intent1.putExtra("ReminderMsg", event);
+        context.startService(intent1);
 
         notificationManager.notify(0, notificationBuilder.build());
 
