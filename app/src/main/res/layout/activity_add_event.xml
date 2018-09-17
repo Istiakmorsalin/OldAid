@@ -9,7 +9,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,96 +22,108 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
                 <TextView
-                    android:gravity="center"
-                    android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Remind Me To"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:gravity="center"
+                    android:text="Remind Me To"
+                    android:textSize="20sp" />
 
                 <RelativeLayout
                     android:id="@+id/speak"
+                    android:layout_width="70dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corners_background"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="70dp"
-                    android:layout_height="56dp">
+                    android:gravity="center">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_mic_white_48dp"
-                        />
+                        android:background="@drawable/ic_mic_white_48dp" />
                 </RelativeLayout>
 
                 <EditText
-                    android:imeOptions="actionDone"
+                    android:id="@+id/event"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:padding="5dp"
-                    android:gravity="top|left"
-                    android:textColor="#ffffff"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:id="@+id/event"
                     android:background="@drawable/rounded_corners_background"
+                    android:gravity="top|left"
+                    android:hint="Input reminder Details"
+                    android:imeOptions="actionDone"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
 
                     />
 
                 <TextView
-                    android:gravity="center"
-                    android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
 
                     android:text="At"
-                    android:layout_marginTop="20dp"
-                    />
+                    android:textSize="20sp" />
 
                 <EditText
-                    android:focusable="false"
+                    android:id="@+id/time"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
-                    android:textColor="#ffffff"
-                    android:textIsSelectable="true"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/time"
                     android:background="@drawable/rounded_corners_background"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
-                    />
+                    android:textIsSelectable="true" />
 
                 <TextView
-                    android:gravity="center"
-                    android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
 
                     android:text="On"
-                    android:layout_marginTop="20dp"
-                    />
+                    android:textSize="20sp" />
 
                 <EditText
-                    android:focusable="false"
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
-                    android:textColor="#ffffff"
-                    android:textIsSelectable="true"
+                    android:background="@drawable/rounded_corners_background"
+                    android:focusable="false"
                     android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textIsSelectable="true" />
+
+                <EditText
+                    android:id="@+id/interval_time"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/date"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="30dp"
+                    android:hint="Interval Time (In Minute)"
+                    android:inputType="numberDecimal"
                     android:background="@drawable/rounded_corners_background"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
-                    />
-
+                     />
 
 
             </LinearLayout>

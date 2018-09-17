@@ -44,7 +44,7 @@ public class TTS extends Service implements TextToSpeech.OnInitListener, TextToS
                 thread.start();
 
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

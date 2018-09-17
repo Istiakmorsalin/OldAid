@@ -29,13 +29,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 
 public class AddEvent extends AppCompatActivity {
 
 
-    private EditText edtEvent, edtDate, edtTime;
+    private EditText edtEvent, edtDate, edtTime, interValTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private Button btnDone;
     private AlarmManager am;
@@ -62,6 +63,7 @@ public class AddEvent extends AppCompatActivity {
         edtDate = (EditText)findViewById(R.id.date);
         btnDone = (Button)findViewById(R.id.button);
         rlSpeak = (RelativeLayout)findViewById(R.id.speak);
+        interValTime = (EditText) findViewById(R.id.interval_time);
 
 
         rlSpeak.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +197,7 @@ public class AddEvent extends AppCompatActivity {
         intent.putExtra("time", timeEntered);
         intent.putExtra("date", dateEntered);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         try {
             // Convert the set date and time to timestamp
@@ -207,7 +209,12 @@ public class AddEvent extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        am.set(AlarmManager.RTC_WAKEUP, tsSet, pendingIntent);
+       // am.set(AlarmManager.RTC_WAKEUP, tsSet, pendingIntent);
+        String intervalTimeinMinute = (interValTime.getText().toString());
+
+        Long intervalTimeInMinute =  Long.valueOf(intervalTimeinMinute);
+
+        am.setRepeating(AlarmManager.RTC_WAKEUP,tsSet, TimeUnit.MINUTES.toMillis(intervalTimeInMinute), pendingIntent);
     }
 
 

@@ -42,7 +42,7 @@ public class TimeAlarm extends BroadcastReceiver {
         intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent2.putExtra("ReminderMsg", event);
         PendingIntent pendingIntent =
-                PendingIntent.getActivity(context, 1, intent2, PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent.getActivity(context, 1, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.drawable.small_notify_icon)
