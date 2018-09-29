@@ -13,9 +13,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:textSize="30dp"
-            android:text="Choose Options Below:"
+            android:text=""
             android:layout_gravity="center"
             android:textColor="@color/blue"/>
 
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             >
@@ -114,6 +114,59 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/news"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="News"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+            <Button
+                android:id="@+id/bmi"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Check Health"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#00b49c"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/instructions"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Instructions"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#b40015"
+                />
+
+        </LinearLayout>
+
+
 
 
 
@@ -127,7 +180,7 @@
         android:layout_marginBottom="160dp"
         android:textColor="@color/blue"
         android:textSize="16sp"
-        android:text="Say 'Create Alarm' for setting an alarm,Say 'Danger' for help,Say 'Location' for help, Say 'Home' for old home, Say 'reminder' for reminder ,Say 'food' for food suggestion"
+        android:text=""
         android:textStyle="normal" />
 
     <TextView

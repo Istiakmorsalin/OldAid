@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Input Current Weight"
+        android:text="Calculate BMI"
         android:textSize="30dp"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
@@ -45,9 +45,28 @@
         android:id="@+id/current_weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint = "Input weight in(Kg)"
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        android:hint = "Input weight in(Lbs)"
         />
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:hint = "Input height in(Inch)"
+            />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:hint = "Age"
+            />
 
 
     <Button
@@ -64,17 +83,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:gravity="center"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:text=""
             />
-
-        <Button
-            android:id="@+id/food_suggestion"
-            android:layout_marginTop="40dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Show Food Suggestion"/>
 
     </LinearLayout>
 
