@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"> <!--Must set this!-->
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            app:contentInsetStart="0dp"
+            app:popupTheme="?themedPopupOverlay">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input Current Weight"
+        android:textSize="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:textColor="@color/calendar_header"
+        />
+
+
+
+    <EditText
+        android:id="@+id/current_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint = "Input weight in(Kg)"
+        />
+
+
+    <Button
+        android:id="@+id/calculate_bmi"
+        android:layout_marginTop="40dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Calculate BMI"/>
+
+        <TextView
+            android:id="@+id/bmi_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:text=""
+            />
+
+        <Button
+            android:id="@+id/food_suggestion"
+            android:layout_marginTop="40dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Show Food Suggestion"/>
+
+    </LinearLayout>
+
+</LinearLayout>
