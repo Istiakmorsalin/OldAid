@@ -13,6 +13,9 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.onisha.oldaid.speechtotext.SpeechToTextActivity;
+import com.onisha.oldaid.webview.CommonWebViewActivity;
+import com.pixplicity.easyprefs.library.Prefs;
 
 
 public class OldAidFirebaseMessagingService extends FirebaseMessagingService {
@@ -62,6 +65,7 @@ public class OldAidFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Prefs.putString(SharedPreferenceKey.newsLink, remoteMessage.getNotification().getBody());
             sendNotification(remoteMessage.getNotification().getBody());
         }
 
@@ -119,7 +123,7 @@ public class OldAidFirebaseMessagingService extends FirebaseMessagingService {
      * @param messageBody FCM message body received.
      */
     private void sendNotification(String messageBody) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SpeechToTextActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);

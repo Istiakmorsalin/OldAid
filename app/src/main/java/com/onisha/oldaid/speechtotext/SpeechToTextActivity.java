@@ -9,14 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.onisha.oldaid.MainActivity;
 import com.onisha.oldaid.R;
+import com.onisha.oldaid.SharedPreferenceKey;
 import com.onisha.oldaid.location.MyLocationUsingLocationAPI;
 import com.onisha.oldaid.notifiy.PersistenceFriendDataActivity;
+import com.onisha.oldaid.nutrition.BMIActivity;
 import com.onisha.oldaid.nutrition.CalculateBMIActivity;
 import com.onisha.oldaid.oldhome.OldHomeActivity;
 import com.onisha.oldaid.reminder.activity.ReminderMainActivity;
+import com.onisha.oldaid.webview.CommonWebViewActivity;
+import com.pixplicity.easyprefs.library.Prefs;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -33,7 +39,7 @@ public class SpeechToTextActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private MediaPlayer mPlayer;
 
-    private Button createAlarm, danger, lcoation, home, reminder, food;
+    private Button createAlarm, danger, lcoation, home, reminder, food, news, bmi, inst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,11 @@ public class SpeechToTextActivity extends AppCompatActivity {
         home  = (Button) findViewById(R.id.homeButton);
         reminder  = (Button) findViewById(R.id.reminder);
         food  = (Button) findViewById(R.id.food);
+        news  = (Button) findViewById(R.id.news);
+        bmi  = (Button) findViewById(R.id.bmi);
+        inst  = (Button) findViewById(R.id.instructions);
+
+        final String st = "Say 'Create Alarm' for setting an alarm,Say 'Danger' for help,Say 'Location' for help, Say 'Home' for old home, Say 'reminder' for reminder ,Say 'food' for food suggestion";
 
         mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.intro);
         mPlayer.start();
@@ -95,6 +106,48 @@ public class SpeechToTextActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(SpeechToTextActivity.this, CalculateBMIActivity.class);
                 startActivity(i);
+            }
+        });
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(SpeechToTextActivity.this, CommonWebViewActivity.class);
+                String newsLink = Prefs.getString(SharedPreferenceKey.newsLink, "");
+
+                if (!newsLink.equals("")) {
+                    i.putExtra("URL", newsLink);
+                    Prefs.putString(SharedPreferenceKey.newsLink, "");
+                    startActivity(i);
+                } else {
+                    Toast.makeText(SpeechToTextActivity.this, "No news Good news", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+
+        bmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SpeechToTextActivity.this, BMIActivity.class);
+                startActivity(i);
+            }
+        });
+
+        inst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new LovelyInfoDialog(SpeechToTextActivity.this)
+                        .setTopColorRes(R.color.colorAccent)
+                        .setIcon(R.drawable.icon_test)
+                        //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+                        .setNotShowAgainOptionEnabled(0)
+                        .setNotShowAgainOptionChecked(true)
+                        .setTitle("Please Read below")
+                        .setMessage(st)
+                        .show();
             }
         });
 
