@@ -16,6 +16,7 @@ import com.onisha.oldaid.auth.LoginActivity;
 import com.onisha.oldaid.datainput.DataInputActivity;
 import com.onisha.oldaid.reminder.model.PrefsModelDB;
 import com.onisha.oldaid.reminder.model.RegistrationModelDB;
+import com.onisha.oldaid.webview.CommonWebViewActivity;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import io.realm.Realm;
@@ -29,6 +30,7 @@ public class CalculateBMIActivity extends BaseActivity {
     private EditText weight;
     private Button calculateBMI, navigateToFood;
     private TextView bmiValue;
+    double bmi;
 
 
     @Override
@@ -54,14 +56,32 @@ public class CalculateBMIActivity extends BaseActivity {
         myRealm = Realm.getInstance(getBaseContext());
         results1 = myRealm.where(PrefsModelDB.class).findAll();
 
-        final MediaPlayer mPlayer = MediaPlayer.create(CalculateBMIActivity.this, R.raw.login);
+        final MediaPlayer mPlayer = MediaPlayer.create(CalculateBMIActivity.this, R.raw.foods);
         mPlayer.start();
 
         navigateToFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CalculateBMIActivity.this, SampleFoodSuggestionActivity.class);
-                startActivity(i);
+                Intent i = new Intent(CalculateBMIActivity.this, CommonWebViewActivity.class);
+                if( bmi < 18.5) {
+                    i.putExtra("URL", "https://www.stylecraze.com/articles/4-simple-diet-tips-and-a-diet-chart-to-gain-weight");
+                    startActivity(i);
+                } else if (bmi < 24.9 && bmi> 18.5) {
+                    i.putExtra("URL", "https://truweight.in/blog/food-and-nutrition/balanced-diet-chart.html");
+                    startActivity(i);
+                } else if (bmi < 29.9 && bmi >25) {
+                    i.putExtra("URL", "https://www.pritikin.com/your-health/healthy-living/eating-right/1720-healthy-meal-plan-for-weight-loss.html");
+                    startActivity(i);
+                } else if(bmi <34.9 && bmi > 30) {
+                    i.putExtra("URL", "https://www.pritikin.com/your-health/healthy-living/eating-right/1720-healthy-meal-plan-for-weight-loss.html");
+                    startActivity(i);
+                } else if(bmi <39.9 && bmi>35) {
+                    i.putExtra("URL", "https://www.pritikin.com/your-health/healthy-living/eating-right/1720-healthy-meal-plan-for-weight-loss.html");
+                    startActivity(i);
+                } else if (bmi>40) {
+                    i.putExtra("URL", "https://www.pritikin.com/your-health/healthy-living/eating-right/1720-healthy-meal-plan-for-weight-loss.html");
+                    startActivity(i);
+                }
             }
         });
 
@@ -73,7 +93,7 @@ public class CalculateBMIActivity extends BaseActivity {
 
                 Float current_height = results1.last().getHeight()/100;
 
-                double bmi =  current_weight / (Math.pow(current_height,2));
+                bmi =  current_weight / (Math.pow(current_height,2));
 
                 if( bmi < 18.5) {
                     bmiValue.setText("underweight");

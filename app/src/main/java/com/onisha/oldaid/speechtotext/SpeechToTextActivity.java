@@ -31,6 +31,7 @@ public class SpeechToTextActivity extends AppCompatActivity {
     private TextView voiceInput;
     private TextView speakButton;
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    private MediaPlayer mPlayer;
 
     private Button createAlarm, danger, lcoation, home, reminder, food;
 
@@ -45,6 +46,9 @@ public class SpeechToTextActivity extends AppCompatActivity {
         home  = (Button) findViewById(R.id.homeButton);
         reminder  = (Button) findViewById(R.id.reminder);
         food  = (Button) findViewById(R.id.food);
+
+        mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.intro);
+        mPlayer.start();
 
         createAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,18 +98,6 @@ public class SpeechToTextActivity extends AppCompatActivity {
             }
         });
 
-//        final MediaPlayer mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.CreateAlarm);
-//        mPlayer.start();
-//
-//        final MediaPlayer mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.Location);
-//        mPlayer.start();
-//
-//        final MediaPlayer mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.home);
-//        mPlayer.start();
-//
-//        final MediaPlayer mPlayer = MediaPlayer.create(SpeechToTextActivity.this, R.raw.Reminder);
-//        mPlayer.start();
-
         voiceInput = (TextView) findViewById(com.onisha.oldaid.R.id.voiceInput);
         speakButton = (TextView) findViewById(com.onisha.oldaid.R.id.btnSpeak);
 
@@ -136,6 +128,13 @@ public class SpeechToTextActivity extends AppCompatActivity {
     }
 
     // Receiving speech input
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mPlayer.stop();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
