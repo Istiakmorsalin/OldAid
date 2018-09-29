@@ -32,6 +32,8 @@ public class CalculateBMIActivity extends BaseActivity {
     private TextView bmiValue;
     double bmi;
 
+    MediaPlayer mPlayer;
+
 
     @Override
     protected int layoutResId() {
@@ -41,6 +43,12 @@ public class CalculateBMIActivity extends BaseActivity {
     @Override
     protected int menuResId() {
         return 0;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mPlayer.stop();
     }
 
     @Override
@@ -56,7 +64,7 @@ public class CalculateBMIActivity extends BaseActivity {
         myRealm = Realm.getInstance(getBaseContext());
         results1 = myRealm.where(PrefsModelDB.class).findAll();
 
-        final MediaPlayer mPlayer = MediaPlayer.create(CalculateBMIActivity.this, R.raw.foods);
+        mPlayer = MediaPlayer.create(CalculateBMIActivity.this, R.raw.foods);
         mPlayer.start();
 
         navigateToFood.setOnClickListener(new View.OnClickListener() {

@@ -27,6 +27,7 @@ public class RegistrationActivity extends BaseActivity {
 
     private Realm myRealm;
     private RealmResults<RegistrationModelDB> results1;
+    MediaPlayer mPlayer;
 
     @Override
     protected int layoutResId() {
@@ -39,13 +40,19 @@ public class RegistrationActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        mPlayer.stop();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       //  setContentView(R.layout.activity_register);
 
         Button bt = (Button) findViewById(R.id.save);
 
-        final MediaPlayer mPlayer = MediaPlayer.create(RegistrationActivity.this, R.raw.registration);
+        mPlayer = MediaPlayer.create(RegistrationActivity.this, R.raw.registration);
         mPlayer.start();
 
         ename = (EditText) findViewById(R.id.name);

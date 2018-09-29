@@ -25,6 +25,7 @@ public class LoginActivity extends BaseActivity {
     private RealmResults<RegistrationModelDB> results1;
 
     private EditText loginEmail, loginPhoneNumber;
+    MediaPlayer mPlayer;
 
     @Override
     protected int layoutResId() {
@@ -37,6 +38,13 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        mPlayer.stop();
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       //  setContentView(R.layout.activity_login);o
@@ -47,7 +55,7 @@ public class LoginActivity extends BaseActivity {
         myRealm = Realm.getInstance(getBaseContext());
         results1 = myRealm.where(RegistrationModelDB.class).findAll();
 
-        final MediaPlayer mPlayer = MediaPlayer.create(LoginActivity.this, R.raw.login);
+        mPlayer = MediaPlayer.create(LoginActivity.this, R.raw.login);
         mPlayer.start();
 
 
